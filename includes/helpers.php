@@ -22,9 +22,9 @@ function datosDisfraz(): array {
 function leerFoto(): ?array {
     if (empty($_FILES['foto']) || $_FILES['foto']['error'] === UPLOAD_ERR_NO_FILE) return null;
     $f = $_FILES['foto'];
-    if ($f['error'] !== UPLOAD_ERR_OK || $f['size'] > 1048576) responder(400, ['mensaje' => 'La imagen debe pesar hasta 1 MB.']);
+    if ($f['error'] !== UPLOAD_ERR_OK || $f['size'] > 5242880) responder(400, ['mensaje' => 'La imagen debe pesar hasta 5 MB.']);
     $mime = (new finfo(FILEINFO_MIME_TYPE))->file($f['tmp_name']);
-    $ext = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp'][$mime] ?? null;
-    if (!$ext) responder(400, ['mensaje' => 'Formato no válido. Usá JPG, PNG o WEBP.']);
+    $ext = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp', 'image/gif' => 'gif'][$mime] ?? null;
+    if (!$ext) responder(400, ['mensaje' => 'Formato no válido. Usá JPG, PNG, WEBP o GIF.']);
     return ['blob' => file_get_contents($f['tmp_name']), 'nombre' => bin2hex(random_bytes(6)) . '.' . $ext];
 }
