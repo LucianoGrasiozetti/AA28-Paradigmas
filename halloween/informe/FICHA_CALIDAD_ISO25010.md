@@ -1,0 +1,11 @@
+# Ficha de autoevaluación de calidad ISO/IEC 25010
+
+| Característica | Evidencia técnica en el código | Estado | Observación |
+|---|---|---|---|
+| 1. Adecuación funcional | El backend PHP procesa y persiste datos en MySQL vía PDO: registro (registro.php), login, voto con transacción (votar.php), CRUD de disfraces (crear/editar/eliminar.php). Votos duplicados bloqueados con UNIQUE (id_usuario, id_disfraz). | Cumple | Verificar en phpMyAdmin que cada alta/voto queda guardado. |
+| 2. Eficiencia de desempeño | listar.php devuelve solo id, nombre, descripción y votos, con la URL de la imagen (no el BLOB). imagen.php sirve la foto con Cache-Control. Consultas simples y con índices (PK y UNIQUE). | Cumple | Adjuntar captura de la pestaña Network con los tiempos en ms. |
+| 3. Compatibilidad | Arquitectura desacoplada: public/ (HTML, CSS y JS vanilla con fetch) y api/ (PHP) se comunican solo por JSON. | Cumple | El frontend no contiene PHP ni el backend contiene HTML. |
+| 4. Fiabilidad | Cada endpoint usa try/catch (PDOException), registra el error con error_log sin exponerlo al cliente y devuelve códigos semánticos: 200, 201, 400, 401, 403, 404, 405, 409 y 500. Rollback en la transacción de voto. | Cumple | Forzar un error (dato vacío, voto repetido) y capturar la respuesta. |
+| 5. Seguridad (OWASP) | password_hash(PASSWORD_BCRYPT) y password_verify; prepare() en todas las consultas (previene SQLi); session_regenerate_id al iniciar sesión; cookies HttpOnly y SameSite; rol admin validado en el servidor (requerirAdmin); imágenes validadas por MIME real y tamaño; salida al DOM con textContent (previene XSS). | Cumple (con mejoras pendientes) | Pendiente: token CSRF y límite de intentos de login. |
+| 6. Usabilidad / Accesibilidad | lang=es, title por página, landmarks, un h1 por página, label for en cada campo, alt en imágenes, aria-label único en botones, aria-live=polite con textContent, :focus-visible, enlace Saltar al contenido, contraste AA, objetivos de 44 px. | A Corregir | Hasta ejecutar Lighthouse en las 5 páginas, registrar el puntaje y corregir lo que baje de 100. |
+| 7. Mantenibilidad | Capas separadas: config/, includes/, api/, public/, database/. Cada archivo tiene una sola responsabilidad; helpers compartidos. | A Corregir | Falta versionar en Git: git init y commits con mensajes claros. |
