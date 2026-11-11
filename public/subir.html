@@ -1,32 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Subir mi disfraz | Concurso de disfraces</title>
-<meta name="description" content="Subí la foto y la descripción de tu disfraz de Halloween.">
-<link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-<a href="#contenido" class="skip-link">Saltar al contenido</a>
-<header>
-<p class="marca"><span aria-hidden="true">🎃</span> Concurso de disfraces</p>
-<nav id="nav" aria-label="Principal"></nav>
-</header>
-<main id="contenido">
-<h1>Subí tu disfraz</h1>
-<p id="estado" class="estado" role="status" aria-live="polite"></p>
-<form id="form">
-<label for="nombre">Nombre del disfraz</label>
-<input id="nombre" name="nombre" type="text" maxlength="50" required>
-<label for="descripcion">Descripción</label>
-<textarea id="descripcion" name="descripcion" rows="4" required></textarea>
-<label for="foto">Foto (JPG, PNG, WEBP o GIF, hasta 1 MB)</label>
-<input id="foto" name="foto" type="file" accept="image/jpeg,image/png,image/webp,image/gif" required>
-<button type="submit">Subir disfraz</button>
-</form>
-</main>
-<footer><p>Proyecto de Halloween con API REST en PHP y MySQL.</p></footer>
-<script type="module" src="js/subir.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Subir mi disfraz | Concurso de disfraces</title>
+    <meta
+      name="description"
+      content="Subí la foto y la descripción de tu disfraz de Halloween."
+    />
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+    <header>
+      <p class="marca">
+        <span aria-hidden="true">🎃</span> Concurso de disfraces
+      </p>
+      <nav id="nav" aria-label="Principal"></nav>
+    </header>
+    <main id="contenido">
+      <h1>Subí tu disfraz</h1>
+      <p id="estado" class="estado" role="status" aria-live="polite"></p>
+      <form id="form">
+        <label for="nombre">Nombre del disfraz</label>
+        <input id="nombre" name="nombre" type="text" maxlength="50" required />
+        <label for="descripcion">Descripción</label>
+        <textarea
+          id="descripcion"
+          name="descripcion"
+          rows="4"
+          required
+        ></textarea>
+        <label for="foto">Foto (JPG, PNG, WEBP o GIF, hasta 1 MB)</label>
+        <input
+          id="foto"
+          name="foto"
+          type="file"
+          accept="image/jpeg,image/png,image/webp,image/gif"
+          required
+        />
+        <button type="submit">Subir disfraz</button>
+      </form>
+    </main>
+    <footer><p>Proyecto de Halloween con API REST en PHP y MySQL.</p></footer>
+    <script type="module" src="js/subir.js"></script>
+  </body>
 </html>

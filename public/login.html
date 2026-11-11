@@ -1,31 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Iniciar sesión | Concurso de disfraces</title>
-<meta name="description" content="Concurso de disfraces de Halloween: registrate y votá por tu favorito.">
-<link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-<a href="#contenido" class="skip-link">Saltar al contenido</a>
-<header>
-<p class="marca"><span aria-hidden="true">🎃</span> Concurso de disfraces</p>
-<nav id="nav" aria-label="Principal"></nav>
-</header>
-<main id="contenido">
-<h1>Iniciar sesión</h1>
-<p id="estado" class="estado" role="status" aria-live="polite"></p>
-<form id="form">
-<label for="nombre">Nombre de usuario</label>
-<input id="nombre" name="nombre" type="text" autocomplete="username" required>
-<label for="clave">Contraseña</label>
-<input id="clave" name="clave" type="password" autocomplete="current-password" required>
-<button type="submit">Ingresar</button>
-</form>
-<p>¿No tenés cuenta? <a href="registro.html">Registrate</a>.</p>
-</main>
-<footer><p>Proyecto de Halloween con API REST en PHP y MySQL.</p></footer>
-<script type="module" src="js/login.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Iniciar sesión | Concurso de disfraces</title>
+    <meta
+      name="description"
+      content="Concurso de disfraces de Halloween: registrate y votá por tu favorito."
+    />
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+    <header>
+      <p class="marca">
+        <span aria-hidden="true">🎃</span> Concurso de disfraces
+      </p>
+      <nav id="nav" aria-label="Principal"></nav>
+    </header>
+    <main id="contenido">
+      <h1>Iniciar sesión</h1>
+      <p id="estado" class="estado" role="status" aria-live="polite"></p>
+      <form id="form">
+        <label for="nombre">Nombre de usuario</label>
+        <input
+          id="nombre"
+          name="nombre"
+          type="text"
+          autocomplete="username"
+          required
+        />
+        <label for="clave">Contraseña</label>
+        <input
+          id="clave"
+          name="clave"
+          type="password"
+          autocomplete="current-password"
+          required
+        />
+        <button type="submit">Ingresar</button>
+      </form>
+      <p>¿No tenés cuenta? <a href="registro.html">Registrate</a>.</p>
+    </main>
+    <footer><p>Proyecto de Halloween con API REST en PHP y MySQL.</p></footer>
+    <script type="module" src="js/login.js"></script>
+  </body>
 </html>
